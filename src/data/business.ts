@@ -28,7 +28,7 @@ export const business = {
   geo: { lat: 20.6483, lng: -105.2415 },
   priceRange: "$$$$",
   license: "Rentas Vacacionales & Condominios de Lujo Frente al Mar",
-  logo: "/images/placeholder.jpeg",
+  logo: "/images/logo.png",
   yearFounded: 2010,
   yearsTrusted: "15+",
   trustedPhrase: "Rentas directas de condominios de lujo frente al mar diseñados por Philippe Starck",
