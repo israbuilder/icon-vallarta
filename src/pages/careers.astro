@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JobApplicationForm from "../components/JobApplicationForm.astro";
+import { business } from "../data/business";
+
+const perks = [
+  {
+    title: "World-Class Working Environment",
+    body: "Work on the beachfront at one of Mexico's most iconic luxury residential resorts, surrounded by world-class art and architecture.",
+  },
+  {
+    title: "Competitive Compensation & Growth",
+    body: "Industry-leading salaries, hospitality bonuses, bilingual incentives, and continuous professional development.",
+  },
+  {
+    title: "Five-Star Hospitality Standards",
+    body: "Join a high-caliber team delivering international luxury concierge, property management, and guest relations.",
+  },
+  {
+    title: "Supportive Culture",
+    body: "A collaborative, respectful team culture that values integrity, attention to detail, and passion for excellence.",
+  },
+];
+---
+<BaseLayout
+  title={`Careers — Join the Team | ${business.name}`}
+  description={`Explore luxury hospitality, concierge, real estate, and property management career opportunities at Icon Vallarta in Puerto Vallarta.`}
+  path="/careers"
+>
+  <!-- Banner -->
+  <section class="bg-navy text-white border-b-4 border-brass">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <p class="font-display font-bold text-brass-light uppercase tracking-[0.2em] text-xs">Now Hiring in Puerto Vallarta</p>
+      <h1 class="hp-rise mt-3 font-display font-black text-4xl sm:text-5xl">Join the {business.name} Team</h1>
+      <p class="mt-3 text-white/80 text-lg max-w-2xl">
+        We seek passionate, service-driven professionals who take pride in delivering exceptional luxury hospitality and guest experiences.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why work here -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="font-display font-black text-3xl text-navy">Why Build Your Career at {business.name}?</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {perks.map((perk) => (
+        <div class="bg-cream rounded-2xl border border-navy/10 shadow-sm p-7">
+          <h3 class="font-display font-bold text-xl text-navy">{perk.title}</h3>
+          <p class="mt-2 text-navy/70 text-sm leading-relaxed">{perk.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Application -->
+  <section class="bg-cream border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid gap-12 md:grid-cols-2 md:items-start">
+        <div>
+          <h2 class="font-display font-black text-3xl text-navy">Apply Today</h2>
+          <p class="mt-3 text-navy/70 text-lg leading-relaxed">
+            Please complete the form below and attach your resume or CV. Our management team reviews all candidates and reaches out directly.
+          </p>
+          <div class="mt-8 bg-navy text-white rounded-2xl p-7 shadow-md">
+            <h3 class="font-display font-bold text-xl text-brass-light">Human Resources &amp; Inquiries</h3>
+            <a href={business.phoneHref} class="mt-3 block font-display font-black text-2xl hover:text-brass-light transition-colors">{business.phone}</a>
+            <p class="mt-2 text-xs text-brass-light font-semibold">{business.hoursDisplay}</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-navy/10 shadow-sm p-7 sm:p-8">
+          <h3 class="font-display font-bold text-2xl text-navy mb-1">Career Application</h3>
+          <p class="mb-6 text-navy/70 text-sm">Tell us about your background and language skills.</p>
+          <JobApplicationForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

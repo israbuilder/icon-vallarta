@@ -1,0 +1,40 @@
+---
+import { business } from "../data/business";
+import { reviews } from "../data/reviews";
+
+const featured = reviews.slice(0, 4);
+---
+<section class="bg-white px-6 py-16 border-y border-navy/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center">
+      <p class="font-display font-bold text-brass uppercase tracking-[0.25em] text-xs">Guest &amp; Owner Experiences</p>
+      <h2 class="mt-2 font-display font-black text-3xl sm:text-4xl text-navy">Five-Star Beachfront Living</h2>
+      <div class="mt-4 flex items-center justify-center gap-2">
+        <span class="flex items-center gap-0.5 text-brass" aria-hidden="true">
+          {Array.from({ length: 5 }).map(() => (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27l5.18 3.12-1.37-5.9 4.55-3.95-6-.52L12 4.5 9.64 10.02l-6 .52 4.55 3.95-1.37 5.9z"/></svg>
+          ))}
+        </span>
+        <span class="font-display font-bold text-navy">{business.rating.value}</span>
+        <span class="text-navy/70 text-sm">from {business.rating.count}+ Verified Reviews</span>
+      </div>
+    </div>
+
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {featured.map((r) => (
+        <li class="flex flex-col rounded-2xl border border-navy/10 bg-cream p-6 shadow-sm hover:shadow-md transition-shadow">
+          <span class="flex items-center gap-0.5 text-brass" aria-label={`${r.rating} out of 5 stars`}>
+            {Array.from({ length: r.rating }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27l5.18 3.12-1.37-5.9 4.55-3.95-6-.52L12 4.5 9.64 10.02l-6 .52 4.55 3.95-1.37 5.9z"/></svg>
+            ))}
+          </span>
+          <p class="mt-3 flex-1 text-navy/80 text-sm leading-relaxed italic">"{r.body}"</p>
+          <div class="mt-5 pt-3 border-t border-navy/10">
+            <p class="font-display font-bold text-navy text-sm">{r.name}</p>
+            {r.location && <p class="text-navy/50 text-xs mt-0.5">{r.location}</p>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

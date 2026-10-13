@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ScheduleButton from "../components/ScheduleButton.astro";
+import { business } from "../data/business";
+
+const gallery = [
+  { src: "/images/placeholder.jpeg", alt: "Icon Vallarta three towers beachfront view", feature: true, title: "Three Iconic Beachfront Towers" },
+  { src: "/images/placeholder.jpeg", alt: "Triple heated infinity pools and palm deck", title: "500-Foot Ocean Infinity Pool" },
+  { src: "/images/placeholder.jpeg", alt: "Private wrap-around terrace sunset views", title: "Panoramic Bay Terraces" },
+  { src: "/images/placeholder.jpeg", alt: "Designer interior by Philippe Starck / YOO", title: "Starck Curated Living Spaces" },
+  { src: "/images/placeholder.jpeg", alt: "Exclusive beachfront cabanas and bar", title: "Private Beach Club & Dining" },
+];
+---
+<BaseLayout
+  title={`Residences & Resort Gallery | ${business.name}`}
+  description={`Explore our visual gallery: luxury condominium residences, penthouses, infinity pools, and beachfront views at Icon Vallarta.`}
+  path="/projects"
+>
+  <!-- Banner -->
+  <section class="bg-navy text-white border-b-4 border-brass">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <p class="font-display font-bold text-brass-light uppercase tracking-[0.2em] text-xs">Visual Tour</p>
+      <h1 class="hp-rise mt-3 font-display font-black text-4xl sm:text-5xl">Residences &amp; Resort Gallery</h1>
+      <p class="mt-4 text-white/80 text-lg max-w-2xl">
+        Immerse yourself in life at {business.name} — where visionary architecture meets the gentle waves of Puerto Vallarta.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 max-w-6xl mx-auto">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {gallery.map((p) => (
+        <div class={`hp-zoom hp-lift rounded-2xl shadow-md border border-navy/10 overflow-hidden relative group bg-navy-800 ${p.feature ? "sm:col-span-2 lg:col-span-2" : ""}`}>
+          <img
+            src={p.src}
+            alt={p.alt}
+            width="800"
+            height="600"
+            loading="lazy"
+            class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${p.feature ? "h-72 sm:h-96" : "h-72"}`}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex items-end p-6">
+            <span class="font-display font-bold text-white text-lg tracking-wide">{p.title}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-14 text-center bg-cream border border-navy/10 rounded-2xl p-10">
+      <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-navy">Experience Icon Vallarta in Person</h2>
+      <p class="mt-3 text-navy/70 text-base">Inquire about vacation stays, property tours, or real estate acquisitions.</p>
+      <div class="mt-6 flex justify-center"><ScheduleButton class="px-8 py-4 text-base" label="Inquire With Concierge" /></div>
+    </div>
+  </section>
+</BaseLayout>

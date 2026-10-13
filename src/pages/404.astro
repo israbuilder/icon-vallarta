@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ScheduleButton from "../components/ScheduleButton.astro";
+import { business } from "../data/business";
+
+const links = [
+  { href: "/services", label: "Residences & Services" },
+  { href: "/areas-we-serve", label: "Destinations" },
+  { href: "/projects", label: "Gallery" },
+  { href: "/blog", label: "Blog & Guides" },
+  { href: "/contact", label: "Contact Concierge" },
+];
+---
+<BaseLayout
+  title={`Page Not Found | ${business.name}`}
+  description={`The requested page could not be found. Explore Icon Vallarta luxury beachfront condominiums, residences, and concierge services.`}
+  path="/404"
+>
+  <section class="px-6 py-24 text-center">
+    <div class="max-w-2xl mx-auto">
+      <p class="font-display font-black text-7xl text-brass">404</p>
+      <h1 class="mt-4 font-display font-black text-3xl sm:text-4xl text-navy">Ocean Horizon Not Found</h1>
+      <p class="mt-4 text-navy/70 text-lg">
+        We couldn't locate that page — but paradise is still waiting. Explore our residences below or call our concierge 24/7 at
+        <a href={business.phoneHref} class="font-bold text-water hover:text-navy transition-colors">{business.phone}</a>.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        {links.map((l) => (
+          <a href={l.href} class="hp-lift bg-white border border-navy/10 rounded-lg px-5 py-3 font-display font-bold text-navy shadow-sm hover:border-brass/40 hover:text-brass transition-colors text-sm">{l.label}</a>
+        ))}
+      </div>
+      <div class="mt-9 flex justify-center"><ScheduleButton class="px-7 py-3.5 text-base" label="Return to Concierge" /></div>
+    </div>
+  </section>
+</BaseLayout>

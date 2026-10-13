@@ -1,0 +1,7 @@
+---
+interface Props {
+  targetId?: string;
+}
+const { targetId = "rwl-output" } = Astro.props;
+---
+<div id={targetId} class="w-full"></div>

@@ -1,0 +1,28 @@
+---
+import { business } from "../data/business";
+
+interface Props {
+  label?: string;
+  class?: string;
+}
+const { label = "Inquire / Book Now", class: className = "" } = Astro.props;
+---
+<a
+  href={business.booking.pageUrl}
+  data-hcp-book
+  class={`hp-lift inline-flex items-center justify-center gap-2 bg-brass hover:bg-brass-dark text-navy px-6 py-3 rounded-lg font-display font-bold tracking-tight shadow-lg shadow-brass/20 transition-all duration-300 ${className}`}
+>
+  {label}
+</a>
+
+<script>
+  document.querySelectorAll("[data-hcp-book]").forEach((el) => {
+    el.addEventListener("click", (event) => {
+      const widget = (window as any).HCPWidget;
+      if (widget && typeof widget.openModal === "function") {
+        event.preventDefault();
+        widget.openModal();
+      }
+    });
+  });
+</script>

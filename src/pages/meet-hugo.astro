@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ScheduleButton from "../components/ScheduleButton.astro";
+import { business } from "../data/business";
+---
+<BaseLayout
+  title={`The Architectural Vision of Icon Vallarta | Designed by Philippe Starck`}
+  description={`Discover the architectural vision behind Icon Vallarta: Philippe Starck, YOO Design Studio, Arquitectonica, and Related Group on the Puerto Vallarta oceanfront.`}
+  path="/meet-hugo"
+>
+  <!-- Banner -->
+  <section class="bg-navy text-white border-b-4 border-brass">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <p class="font-display font-bold text-brass-light uppercase tracking-[0.2em] text-xs">Architectural Landmark</p>
+      <h1 class="hp-rise mt-3 font-display font-black text-4xl sm:text-5xl">The Visionary Design of Icon Vallarta</h1>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 max-w-6xl mx-auto">
+    <div class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="hp-zoom rounded-2xl shadow-xl border-4 border-brass overflow-hidden">
+        <img
+          src="/images/placeholder.jpeg"
+          alt="Icon Vallarta oceanfront architecture by Philippe Starck"
+          width="600"
+          height="600"
+          loading="eager"
+          class="w-full object-cover aspect-square rounded-xl"
+        />
+      </div>
+      <div>
+        <h2 class="font-display font-black text-2xl sm:text-3xl text-navy mb-4">
+          Where Avant-Garde Design Meets the Pacific Horizon
+        </h2>
+        <p class="text-navy/80 text-base leading-relaxed mb-4">
+          Conceived by international designer <strong>Philippe Starck</strong> in collaboration with <strong>YOO</strong> and Miami-based <strong>Arquitectonica</strong>, {business.name} transformed Puerto Vallarta's skyline into a world-class architectural destination.
+        </p>
+        <p class="text-navy/80 text-base leading-relaxed mb-4">
+          Every corner reflects Starck's signature whimsical elegance: oversized statues, mirrored lobbies, dramatic lighting installations, and seamless integration between indoor comfort and boundless outdoor vistas.
+        </p>
+        <p class="font-display text-lg font-bold text-brass italic mb-6">
+          "{business.trustedPhrase}"
+        </p>
+        <p class="text-navy/80 text-sm">
+          Interested in learning more about private sales, architecture tours, or staying in a designer residence? Call our concierge team at
+          <a href={business.phoneHref} class="font-bold text-water hover:text-navy transition-colors">{business.phone}</a>.
+        </p>
+        <div class="mt-7"><ScheduleButton class="px-8 py-4 text-base" label="Schedule a Private Tour" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust band -->
+  <section class="relative isolate overflow-hidden bg-navy-800 text-white">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl">Experience the Landmark for Yourself</h2>
+      <p class="mt-4 text-white/85 text-lg font-light">{business.trustedPhrase} · 24/7 Concierge · {business.rating.value}★ Verified Reviews</p>
+      <div class="mt-8 flex justify-center"><ScheduleButton class="px-8 py-4 text-base" label="Explore Current Availability" /></div>
+    </div>
+  </section>
+</BaseLayout>

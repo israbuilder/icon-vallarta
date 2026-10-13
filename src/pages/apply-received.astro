@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../data/business";
+---
+<BaseLayout
+  title={`Application Received — ${business.name} Careers`}
+  description={`Thank you for applying to ${business.name}. We have received your application.`}
+  path="/apply-received"
+>
+  <section class="bg-navy text-white border-b-4 border-brass">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <p class="font-display font-bold text-brass-light uppercase tracking-[0.2em] text-xs">Thank You</p>
+      <h1 class="hp-rise mt-3 font-display font-black text-4xl sm:text-5xl">Application Received</h1>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <div class="bg-cream rounded-2xl border border-navy/10 shadow-sm p-8 text-center sm:text-left">
+      <p class="text-navy/80 text-lg leading-relaxed">
+        Thank you for your interest in joining the {business.name} hospitality and management team. We have received your application and will review your qualifications carefully. If there is a match with our current openings, our HR team will reach out directly.
+      </p>
+      <p class="mt-4 text-navy/70 text-sm">
+        Questions regarding your application? You may reach our office at
+        <a href={business.phoneHref} class="font-display font-bold text-brass hover:text-navy transition-colors">{business.phone}</a>.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/careers" class="font-display font-bold text-navy hover:text-brass transition-colors underline underline-offset-4 text-sm">Back to Careers</a>
+        <a href="/" class="font-display font-bold text-navy hover:text-brass transition-colors underline underline-offset-4 text-sm">Return Home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
