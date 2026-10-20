@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return json({ ok: false, error: "Missing or invalid name/phone" }, 400);
   }
 
-  const base = env("HUGO_OPS_URL") || env("CRM_API_URL");
+  const base = env("CRM_API_URL");
   const key = env("LEAD_CAPTURE_KEY");
   if (!base || !key) {
     // Graceful offline mock capture so client gets successful experience if CRM webhook is unset

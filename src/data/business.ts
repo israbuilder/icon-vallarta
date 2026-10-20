@@ -5,7 +5,7 @@ export const business = {
   email: "rentas@iconvallarta.com",
   phone: "(346) 477-8912",
   phoneHref: "tel:+13464778912",
-  url: "https://houstonitsecurity.net",
+  url: "https://icon-vallarta.mx",
   address: "Av. Francisco Medina Ascencio 2485, Zona Hotelera Norte, 48333 Puerto Vallarta, Jal., México",
   addressParts: {
     street: "Av. Francisco Medina Ascencio 2485",

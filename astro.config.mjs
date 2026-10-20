@@ -13,11 +13,10 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://houstonitsecurity.net',
+  site: 'https://icon-vallarta.mx',
 
   redirects: {
     '/charities': '/community-mission',
-    '/about': '/meet-hugo',
   },
 
   trailingSlash: 'ignore',

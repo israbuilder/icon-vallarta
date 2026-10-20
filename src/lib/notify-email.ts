@@ -18,7 +18,7 @@ export async function sendLeadEmail(
       },
       body: JSON.stringify({
         personalizations: [{ to: [{ email: deps.to }] }],
-        from: { email: "website@houstonitsecurity.net" },
+        from: { email: "rentas@icon-vallarta.mx" },
         subject: `New Icon Vallarta lead: ${input.name}`,
         content: [
           {
