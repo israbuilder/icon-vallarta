@@ -28,7 +28,14 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !page.includes('/api/') &&
+        !page.includes('/apply-received') &&
+        !page.includes('/404'),
+    }),
+  ],
 
   adapter: node({
     mode: 'standalone'

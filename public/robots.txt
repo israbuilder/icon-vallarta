@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Private endpoints and internal routes
+Disallow: /api/
+Disallow: /apply-received/
+Disallow: /404
+
+# Sitemaps
 Sitemap: https://icon-vallarta.mx/sitemap-index.xml
